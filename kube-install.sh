@@ -157,7 +157,7 @@ install_k8s() {
 
 	# install k8s
 	sudo apt-get update || return 255
-	sudo apt-get install -y kubelet kubeadm kubectl || return 255
+	sudo apt-get install -y --allow-change-held-packages kubelet kubeadm kubectl || return 255
 
 	# prevent k8s auto-upgrade
 	sudo apt-mark hold kubelet kubeadm kubectl || return 255
