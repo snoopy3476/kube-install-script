@@ -140,6 +140,9 @@ install_docker() {
 	sudo apt-get update || return 255
 	sudo apt-get install -y docker-ce docker-ce-cli containerd.io || return 255
 
+	sudo rm /etc/containerd/config.toml
+	sudo systemctl restart containerd
+
 	return 0
 }
 
